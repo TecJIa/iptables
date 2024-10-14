@@ -3,7 +3,7 @@
 Описание домашнего задания
 ---
 
-1.реализовать knocking port
+1. реализовать knocking port
 centralRouter может попасть на ssh inetrRouter через knock скрипт
 
 
@@ -54,12 +54,15 @@ VirtualBox версии 7.0.18
 -A TRAFFIC -j DROP
 COMMIT
 ```
-/sbin/iptables-restore < /etc/iptables_rules.ipv4
 
+```bash
+/sbin/iptables-restore < /etc/iptables_rules.ipv4
+```
 
 PS. Надо быть осторожным с этими правилами, я намудрил немного и меня самого выкинуло с сервера :D
 
 ![images2](./images/iptables_0.png)
+
 
 
 **Включаем START_KNOCKD=1 в /etc/default/knockd**
@@ -78,6 +81,10 @@ START_KNOCKD=1
 ```
 
 ![images2](./images/iptables_1.png)
+
+
+
+
 
 
 **Делаем юнит /etc/systemd/system/knockd.service для knockd**
@@ -146,6 +153,8 @@ systemctl start knockd
 
 ---
 - Этап 2: добавить inetRouter2, пробросить порт
+
+
 **Для удобства воспользуемся стендом из ДЗ архитектура сетей** с небольшим дополнением. Создадим еще одну VM inetRouter2
 
 ```bash
